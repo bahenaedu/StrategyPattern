@@ -54,7 +54,7 @@ public class Main {
             b.addWith(temp.get(i));
             if(b.getMessage().equals("L"))
             {
-                writer.write("Sorry. The integer is out of bounds\n");
+                writer.write("Sorry. " + b.getValue() +  " is out of bounds\n");
                 break;
             }
             writer.write("New value: " + b.getValue() + "\n");

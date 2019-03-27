@@ -4,10 +4,11 @@ public class LinesInfo {
     private ArrayList<String> lines;
     private String command;
     private int value, lower, upper;
-    private ArrayList<Integer> restValues = new ArrayList<>();
+    private ArrayList<Integer> restValues;
 
     LinesInfo(ArrayList<String> lines)
     {
+        this.restValues = new ArrayList<>();
         this.lines = lines;
         setAll();
     }
@@ -50,12 +51,6 @@ public class LinesInfo {
             this.restValues.add(Integer.parseInt(this.lines.get(i)));
         }
     }
-
-    public void printRestValues()
-    {
-        System.out.println(this.restValues);
-    }
-
 
     public int splittingString (String string)
     {

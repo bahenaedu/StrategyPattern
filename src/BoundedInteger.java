@@ -48,7 +48,7 @@ public class BoundedInteger
         }
         catch (OutOfBoundsException e)
         {
-            this.value = 0;
+            this.value = tempValue;
             this.message = "L";
             System.out.println("Sorry. Outside of bounds.");
         }
