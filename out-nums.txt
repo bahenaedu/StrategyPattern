@@ -1,0 +1,5 @@
+Original value: 5
+New value: 7
+New value: 10
+New value: 6
+New value: 1
