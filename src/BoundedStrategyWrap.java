@@ -2,15 +2,14 @@ public class BoundedStrategyWrap implements BoundedStrategy {
     @Override
     public int bounded(int value, int lower, int upper) throws OutOfBoundsException
     {
-        if(!(value > lower && value < upper))
-        {
-            if(value > upper)
-            {
-                value = lower + (value - upper) % (upper -lower);
+        if (value > upper) {
+            while (value > upper){
+                value -= upper - lower + 1;
             }
-            else
-            {
-                value = (upper - value) % (upper - lower);
+        }
+        else {
+            while (value < lower){
+                value += upper - lower + 1;
             }
         }
         return value;

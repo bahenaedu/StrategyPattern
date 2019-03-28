@@ -30,7 +30,7 @@ public class Main {
         }
         else if (linesInfo.getCommand().equals("Wrap"))
         {
-            BoundedInteger bW = new BoundedIntegerException
+            BoundedInteger bW = new BoundedIntegerWrap
                     (linesInfo.getValue(), linesInfo.getLower(), linesInfo.getUpper(), linesInfo.getCommand());
             writInFile(nameOfFile, linesInfo, bW);
         }
@@ -51,8 +51,9 @@ public class Main {
         //For each value
         for (int i = 0; i < temp.size(); i++)
         {
+            writer.write("Value on file: " + temp.get(i));
             b.addWith(temp.get(i));
-            writer.write("New value: " + b.getValue() + "\n");
+            writer.write(" New value: " + b.getValue() + "\n");
         }
         writer.close();
     }

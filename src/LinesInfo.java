@@ -52,6 +52,7 @@ public class LinesInfo {
         }
     }
 
+
     public int splittingString (String string)
     {
         int spaceLocated = 0;
