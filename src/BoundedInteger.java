@@ -4,7 +4,7 @@ public class BoundedInteger
     private BoundedStrategy b;
     private String message = " ";
 
-    public BoundedInteger (int value, int lower, int upper, String command)
+    public BoundedInteger (int value, int lower, int upper, String command) throws OutOfBoundsException
     {
         setCommand(command);
         this.lower = lower;
@@ -12,7 +12,7 @@ public class BoundedInteger
         setValue(value);
     }
 
-    public void setValue(int newValue)
+    public void setValue(int newValue) throws OutOfBoundsException
     {
         performStrategy(newValue);
     }
@@ -28,7 +28,7 @@ public class BoundedInteger
         return this.value;
     }
 
-    public void addWith (int newValue)
+    public void addWith (int newValue) throws OutOfBoundsException
     {
         int temp = this.value + newValue;
         setValue(temp);
@@ -40,18 +40,9 @@ public class BoundedInteger
         this.b = strategy;
     }
 
-    public void performStrategy(int tempValue)
+    public void performStrategy(int tempValue) throws OutOfBoundsException
     {
-        try
-        {
-            this.value = b.bounded(tempValue, this.lower, this.upper);
-        }
-        catch (OutOfBoundsException e)
-        {
-            this.value = tempValue;
-            this.message = "L";
-            System.out.println("Sorry. Outside of bounds.");
-        }
+        this.value = b.bounded(tempValue, this.lower, this.upper);
     }
 
     public void setCommand (String command)

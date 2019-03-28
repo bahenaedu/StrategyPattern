@@ -42,7 +42,7 @@ public class Main {
         }
     }
 
-    public static void writInFile(String nameFile, LinesInfo linesInfo, BoundedInteger b) throws IOException
+    public static void writInFile(String nameFile, LinesInfo linesInfo, BoundedInteger b) throws IOException, OutOfBoundsException
     {
         ArrayList<Integer> temp = linesInfo.getRestValues();
         BufferedWriter writer = new BufferedWriter(new FileWriter("out-" + nameFile));
@@ -52,11 +52,6 @@ public class Main {
         for (int i = 0; i < temp.size(); i++)
         {
             b.addWith(temp.get(i));
-            if(b.getMessage().equals("L"))
-            {
-                writer.write("Sorry. " + b.getValue() +  " is out of bounds\n");
-                break;
-            }
             writer.write("New value: " + b.getValue() + "\n");
         }
         writer.close();
